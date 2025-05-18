@@ -24,7 +24,7 @@
       const lname = document.getElementById('lname').value;
       const idnum = document.getElementById('idnum').value;
 
-      fetch('PASTE_YOUR_WEB_APP_URL_HERE', {
+      fetch('https://script.google.com/macros/s/AKfycbwG2FJuOiM4EQ23AoY1Ghly7U2zstTOm6Dh5ehZC9c8V02vjGT9FODJ5t4rh9fPilOnnQ/exec', {
         method: 'POST',
         body: JSON.stringify({ fname, lname, idnum }),
         headers: { 'Content-Type': 'application/json' }
