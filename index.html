@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form</title>
+  <style>
+    body { font-family: Arial; background: #f1f1f1; padding: 20px; }
+    .form-box { background: #fff; padding: 20px; max-width: 400px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    input, button { width: 100%; padding: 10px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Submit Form</h2>
+    <input type="text" id="fname" placeholder="Fast Name" required>
+    <input type="text" id="lname" placeholder="Last Name" required>
+    <input type="number" id="idnum" placeholder="ID Number" required>
+    <button onclick="submitForm()">Submit</button>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    function submitForm() {
+      const fname = document.getElementById('fname').value;
+      const lname = document.getElementById('lname').value;
+      const idnum = document.getElementById('idnum').value;
+
+      fetch('PASTE_YOUR_WEB_APP_URL_HERE', {
+        method: 'POST',
+        body: JSON.stringify({ fname, lname, idnum }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => response.text())
+      .then(result => {
+        document.getElementById("status").innerText = "Submitted successfully!";
+      })
+      .catch(error => {
+        document.getElementById("status").innerText = "Error submitting form.";
+      });
+    }
+  </script>
+</body>
+</html>
